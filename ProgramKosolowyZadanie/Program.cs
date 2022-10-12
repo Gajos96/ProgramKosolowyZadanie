@@ -13,8 +13,6 @@ namespace ProgramKosolowyZadanie
     {
         public static void Main(string[] args)
         {
-            
-            
             IList<Osoby> osobies = new List<Osoby>();
             NewMethod();
             NewCollection newCollection = new NewCollection();
