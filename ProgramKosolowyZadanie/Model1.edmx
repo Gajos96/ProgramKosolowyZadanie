@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Osoby">
+          <Key>
+            <PropertyRef Name="id_osoby" />
+          </Key>
+          <Property Name="id_osoby" Type="int" Nullable="false" />
+          <Property Name="imie" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="plec" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="id_ojca" Type="int" />
+          <Property Name="id_matki" Type="int" />
+          <Property Name="rok_urodzenia" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Osoby__id_matki__25869641">
+          <End Role="Osoby" Type="Self.Osoby" Multiplicity="0..1" />
+          <End Role="Osoby1" Type="Self.Osoby" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Osoby">
+              <PropertyRef Name="id_osoby" />
+            </Principal>
+            <Dependent Role="Osoby1">
+              <PropertyRef Name="id_matki" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Osoby__id_ojca__24927208">
+          <End Role="Osoby" Type="Self.Osoby" Multiplicity="0..1" />
+          <End Role="Osoby1" Type="Self.Osoby" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Osoby">
+              <PropertyRef Name="id_osoby" />
+            </Principal>
+            <Dependent Role="Osoby1">
+              <PropertyRef Name="id_ojca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="Osoby" EntityType="Self.Osoby" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Osoby__id_matki__25869641" Association="Self.FK__Osoby__id_matki__25869641">
+            <End Role="Osoby" EntitySet="Osoby" />
+            <End Role="Osoby1" EntitySet="Osoby" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Osoby__id_ojca__24927208" Association="Self.FK__Osoby__id_ojca__24927208">
+            <End Role="Osoby" EntitySet="Osoby" />
+            <End Role="Osoby1" EntitySet="Osoby" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Osoby">
+          <Key>
+            <PropertyRef Name="id_osoby" />
+          </Key>
+          <Property Name="id_osoby" Type="Int32" Nullable="false" />
+          <Property Name="imie" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="plec" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id_ojca" Type="Int32" />
+          <Property Name="id_matki" Type="Int32" />
+          <Property Name="rok_urodzenia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Osoby1" Relationship="Self.FK__Osoby__id_matki__25869641" FromRole="Osoby" ToRole="Osoby1" />
+          <NavigationProperty Name="Osoby2" Relationship="Self.FK__Osoby__id_matki__25869641" FromRole="Osoby1" ToRole="Osoby" />
+          <NavigationProperty Name="Osoby11" Relationship="Self.FK__Osoby__id_ojca__24927208" FromRole="Osoby" ToRole="Osoby1" />
+          <NavigationProperty Name="Osoby3" Relationship="Self.FK__Osoby__id_ojca__24927208" FromRole="Osoby1" ToRole="Osoby" />
+        </EntityType>
+        <Association Name="FK__Osoby__id_matki__25869641">
+          <End Role="Osoby" Type="Self.Osoby" Multiplicity="0..1" />
+          <End Role="Osoby1" Type="Self.Osoby" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Osoby">
+              <PropertyRef Name="id_osoby" />
+            </Principal>
+            <Dependent Role="Osoby1">
+              <PropertyRef Name="id_matki" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Osoby__id_ojca__24927208">
+          <End Role="Osoby" Type="Self.Osoby" Multiplicity="0..1" />
+          <End Role="Osoby1" Type="Self.Osoby" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Osoby">
+              <PropertyRef Name="id_osoby" />
+            </Principal>
+            <Dependent Role="Osoby1">
+              <PropertyRef Name="id_ojca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Osoby" EntityType="Self.Osoby" />
+          <AssociationSet Name="FK__Osoby__id_matki__25869641" Association="Self.FK__Osoby__id_matki__25869641">
+            <End Role="Osoby" EntitySet="Osoby" />
+            <End Role="Osoby1" EntitySet="Osoby" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Osoby__id_ojca__24927208" Association="Self.FK__Osoby__id_ojca__24927208">
+            <End Role="Osoby" EntitySet="Osoby" />
+            <End Role="Osoby1" EntitySet="Osoby" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+          <EntitySetMapping Name="Osoby">
+            <EntityTypeMapping TypeName="Database1Model.Osoby">
+              <MappingFragment StoreEntitySet="Osoby">
+                <ScalarProperty Name="id_osoby" ColumnName="id_osoby" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="plec" ColumnName="plec" />
+                <ScalarProperty Name="id_ojca" ColumnName="id_ojca" />
+                <ScalarProperty Name="id_matki" ColumnName="id_matki" />
+                <ScalarProperty Name="rok_urodzenia" ColumnName="rok_urodzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
