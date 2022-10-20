@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="61268d30757e470baa7767355e32370f" Name="Diagram1">
+      <Diagram DiagramId="61268d30757e470baa7767355e32370f" Name="Diagram1" ZoomLevel="96">
         <EntityTypeShape EntityType="Database1Model.Osoby" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="Database1Model.FK__Osoby__id_matki__25869641" ManuallyRouted="false" />
         <AssociationConnector Association="Database1Model.FK__Osoby__id_ojca__24927208" ManuallyRouted="false" />

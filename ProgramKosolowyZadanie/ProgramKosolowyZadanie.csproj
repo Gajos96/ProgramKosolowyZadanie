@@ -69,8 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\ItemNewCollection.cs" />
-    <Compile Include="Class\NewCollection.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
