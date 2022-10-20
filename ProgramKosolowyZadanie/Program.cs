@@ -1,11 +1,9 @@
-﻿using ProgramKosolowyZadanie.Class;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProgramKosolowyZadanie
 {
@@ -15,12 +13,8 @@ namespace ProgramKosolowyZadanie
         {
             IList<Osoby> osobies = new List<Osoby>();
             NewMethod();
-            NewCollection newCollection = new NewCollection();
-            osobies.Select(x => new { x.imie, x.nazwisko }).OrderBy(x => x.imie).ToList().ForEach(o =>
-            {
-                newCollection.AddElement(new ItemNewCollection() { imie = o.imie, nazwisko = o.nazwisko });
-            });
-            var FinallistGroup = newCollection.list.GroupBy(o => o.nazwisko);
+            var list = osobies.Select(x => new { x.imie, x.nazwisko }).OrderBy(x => x.imie).ToList();
+            var FinallistGroup = list.GroupBy(o => o.nazwisko);
             foreach(var item in FinallistGroup)
             {
                 Console.WriteLine("Nazwisko : " + item.Key);
@@ -32,8 +26,10 @@ namespace ProgramKosolowyZadanie
             }
             Console.ReadKey();
 
+            #region Methods
             void NewMethod()
             {
+                //Change in app.config when you generate the database
                 using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database1Entities"].ConnectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand("Select * from Osoby", con))
@@ -58,6 +54,7 @@ namespace ProgramKosolowyZadanie
                     }
                 }
             }
+            #endregion
         }
     }
 }
