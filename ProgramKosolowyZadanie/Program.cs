@@ -18,7 +18,7 @@ namespace ProgramKosolowyZadanie
             }
             catch(Exception e)
             {
-                throw new Exception("Change in app.config when you generate the database", e);
+                throw new Exception("Change in app.config when you generate the database: row 40 program.cs", e);
             }
             var list = osobies.Select(x => new { x.imie, x.nazwisko }).OrderBy(x => x.imie).ToList();
             var FinallistGroup = list.GroupBy(o => o.nazwisko);
