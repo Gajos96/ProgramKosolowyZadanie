@@ -12,7 +12,14 @@ namespace ProgramKosolowyZadanie
         public static void Main(string[] args)
         {
             IList<Osoby> osobies = new List<Osoby>();
-            NewMethod();
+            try
+            {
+                NewMethod();
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Change in app.config when you generate the database", e);
+            }
             var list = osobies.Select(x => new { x.imie, x.nazwisko }).OrderBy(x => x.imie).ToList();
             var FinallistGroup = list.GroupBy(o => o.nazwisko);
             foreach(var item in FinallistGroup)
