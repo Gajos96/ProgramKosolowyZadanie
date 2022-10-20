@@ -16,7 +16,7 @@ namespace ProgramKosolowyZadanie
             IList<Osoby> osobies = new List<Osoby>();
             NewMethod();
             NewCollection newCollection = new NewCollection();
-            osobies.OrderBy(x => x.imie).ToList().ForEach(o =>
+            osobies.Select(x => new { x.imie, x.nazwisko }).OrderBy(x => x.imie).ToList().ForEach(o =>
             {
                 newCollection.AddElement(new ItemNewCollection() { imie = o.imie, nazwisko = o.nazwisko });
             });
